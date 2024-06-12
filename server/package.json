@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "basic application for learning web socket",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node .",
     "dev": "nodemon ."
@@ -10,6 +11,7 @@
   "author": "sap",
   "license": "ISC",
   "dependencies": {
+    "socket.io": "^4.7.5",
     "ws": "^8.17.0"
   }
 }
