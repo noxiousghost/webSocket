@@ -24,6 +24,13 @@ msgInput.addEventListener("keypress", () => {
   socket.emit("activity", socket.id.substring(0, 5));
 });
 
+let activityTImer;
+
 socket.on("activity", (name) => {
   activity.textContent = `${name} is typing...`;
+  //clear activity status after 2 seconds
+  clearTimeout(activityTImer);
+  activityTImer = setTimeout(() => {
+    activity.textContent = "";
+  }, 2000);
 });
