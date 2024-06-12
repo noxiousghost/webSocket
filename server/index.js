@@ -10,7 +10,7 @@ const expressServer = app.listen(PORT, () => {
 });
 
 //state
-const UserState = {
+const UsersState = {
   users: [],
   setUsers: function (newUserArray) {
     this.users = newUserArray;
@@ -124,7 +124,7 @@ function buildMsg(name, text) {
       hour: "numeric",
       minute: "numeric",
       second: "numeric",
-    }).format(newDate()),
+    }).format(new Date()),
   };
 }
 
