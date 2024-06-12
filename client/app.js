@@ -14,6 +14,7 @@ document.querySelector("form").addEventListener("submit", sendMessage);
 
 // Listen for messages
 socket.on("message", (data) => {
+  activity.textContent = "";
   const li = document.createElement("li");
   li.textContent = data;
   document.querySelector("ul").appendChild(li);
@@ -21,4 +22,8 @@ socket.on("message", (data) => {
 
 msgInput.addEventListener("keypress", () => {
   socket.emit("activity", socket.id.substring(0, 5));
+});
+
+socket.on("activity", (name) => {
+  activity.textContent = `${name} is typing...`;
 });
