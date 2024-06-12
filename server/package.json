@@ -4,8 +4,12 @@
   "description": "basic application for learning web socket",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "author": "sap",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.17.0"
+  }
 }
