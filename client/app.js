@@ -64,6 +64,13 @@ socket.on("activity", (name) => {
     activity.textContent = "";
   }, 2000);
 });
+socket.on("userList", ({ users }) => {
+  showUsers(users);
+});
+
+socket.on("roomList", ({ rooms }) => {
+  showRooms(rooms);
+});
 
 function showUsers(users) {
   usersList.textContent = "";
