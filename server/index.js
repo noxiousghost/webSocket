@@ -1,9 +1,13 @@
-import { createServer } from "http";
+import express from "express";
 import { Server } from "socket.io";
 
-const httpServer = createServer();
+const PORT = process.env.PORT || 3500;
 
-const io = new Server(httpServer, {
+const app = express();
+const expressServer = app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
+const io = new Server(expressServer, {
   cors: {
     origin:
       process.env.NODE_ENV === "production"
@@ -20,5 +24,3 @@ io.on("connection", (socket) => {
     io.emit("message", `${socket.id.substring(0, 5)}: ${data}`); // sending message to all user
   });
 });
-
-httpServer.listen(3500, () => console.log("listening on port 3500"));
